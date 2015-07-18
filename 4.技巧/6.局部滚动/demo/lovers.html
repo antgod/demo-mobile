@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <title>约会宝典</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="bus/lovers.css">
+    <link rel="stylesheet" type="text/css" href="bus/place-list.css">
+    <link rel="stylesheet" type="text/css" href="bus/goods-list.css">
+    <script>
+        console.time("app");
+    </script>
+</head>
+<body>
+<article class="wrap">
+    <header id="hd" class="hd">
+        <nav id="hd-nav"></nav> <!-- 品类导航 -->
+        <section id="hd-place"></section>   <!-- 约会地点 -->
+    </header>
+    <section id="goods-list" class="goods-list"></section>
+</article>
+
+<!-- 品类导航模板 -->
+<script id="hdNavTpl" type="text/html">
+    <ul class="hd-cats clear">
+        <%
+            var i=0,len=cat.length;
+            for(i;i<len;i++){
+                var item=cat[i];
+        %>
+        <li class="hd-cat" id="<%=item.category_id%>"><%=item.category_name%></li>
+        <%}%>
+    </ul>
+    <section class="pb-title">
+        <div class="pb-title-txt">
+            <%=title%>
+        </div>
+    </section>
+</script>
+
+<!-- 约会地点模板 -->
+<script id="hdPlaceTpl" type="text/html">
+    <ul>
+        <%
+            var i=0,len=1;
+            for(i;i<len;i++){
+                var  pl= place[i];
+        %>
+        <li class="hd-place-item">
+            <!-- 约会地点图 -->
+            <section class="hd-place-stand">
+                <div class="hd-place-img-wrap">
+                    <div class="hd-place-img" style="background-image: url(<%=Filter.getPlaceImage(pl.type)%>)" />
+                </div>
+                <span class="hd-place-ttl" id="{{item.id}}"><%=pl.name%></span>
+                <span class="hd-place-vw"><span class="icon"></span><%=pl.score%></span>
+            </section>
+            <!-- 约会地点说明 -->
+            <section class="hd-place-desc clear">
+                <span class="hd-place-pos"><span class="icon"></span><%=Filter.getDistance(pl.distance)%></span>
+                <span class="hd-place-type"><%=Filter.array2String(pl.cats)%></span>
+            </section>
+        </li>
+        <li class="more-place">
+            <a class="more-link" href="javascript:void(0)">更多约会地点<i></i></a>
+        </li>
+        <%}%>
+    </ul>
+    <!-- 精彩推荐 -->
+    <section class="pb-title">
+        <div class="pb-title-txt">
+            <%=title%>
+        </div>
+    </section>
+</script>
+
+
+<!-- 团单列表模板 -->
+<script id="goodsListTpl" type="text/html">
+    <%
+        var i=0,len=list.length;
+        for(i;i<len;i++){
+            var item=list[i];
+            var poi=item.poi[0];
+    %>
+    <section class="items">
+        <!-- 团单商家 -->
+        <div class="goods-titlecon">
+            <div class="goods-desc">
+                <span class="goods-title"><%=poi.poiname;%></span>
+                <span class="goods-cat"><%=item.category_name%></span>
+            </div>
+            <div class="star-area">
+                <span class="star-label">浪漫指数</span>
+                <div class="star-off">
+                    <div class="star-wrap" style="width:<%=Filter.starWidth(item.score/10000)%>">
+                        <div class="star-on"></div>
+                    </div>
+                </div>
+                <span class="goods-loc"><%=poi.rangename[0]%><%=Filter.getDistance(poi.distance)%></span>
+            </div>
+        </div>
+
+        <div class="deals-list">
+        <!-- 团单列表-->
+            <ul class="items-list">
+                <%
+                    var deals=item.bn_rp_svr_result;
+                    for(var m=0,mlen=deals.length;m<mlen;m++){
+                    var deal=deals[m];
+                %>
+                <li name="deal_item" class="w-goods clear" style="display:<%=Filter.displayDeal(m)%>">
+                    <a href="bainuo://tuandetail?tuanid=<%=deal.dealId%>&s=<%=s%>">
+                        <div class="img-wrapper">
+                            <img src="<%= deal.tiny_image%>" class="deal-img" />
+                        </div>
+                        <ul class="desc-wrap">
+                            <li class="info"><%=deal.title_high_price%></li>
+                            <li class="price">
+                                <ins><%=Filter.rmb(Filter.currentPrice(deal.market_info)?Filter.currentPrice(deal.market_info):deal.price_current)%></ins>
+                                <del class="old-price"><%=Filter.rmb(deal.price_ori)%></del>
+                                <%=Filter.campaignMsg(deal.market_info)%>
+                            </li>
+                            <li class="other"><%=(deal.score/10000)!=0?Filter.point(deal.score/10000,1)+"分":""%> 已售<%=deal.sale_count%></li>
+                        </ul>
+                    </a>
+                </li>
+                <%
+                    }
+                %>
+                <li>
+                    <!-- 查看更多 -->
+                    <div class="more-item" style="display:<%=Filter.displayMore(deals.length)%>">
+                        <a class="more-link" href="javascript:void(0)">查看其他<%=deals.length-2%>个团购<img src="image/arrow-down.png"></img></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 附近模块 -->
+        <%
+            var nears = item.near_poi;
+        %>
+        <div class="nearby">
+            <!-- 附近头 -->
+            <header class="nearby-title" style="display:<%=Filter.display(nears.length)%>;"><%=item.group_title%></header>
+            <!-- 附近体 -->
+            <div class="nearby-content clear">
+                <%
+                    for(var ne in nears){
+                        var near=nears[ne];
+                        var poi=near.poi[0];
+                %>
+                <a class="nearby-item clear"
+                   href="bainuo://shopdetail?shopid=<%=poi.poiid%>&ctag=<%=poi.ctag%>">
+                    <img class="nearby-icon" src="<%=Filter.getNearByIcon(near.category_first,near.category_second)%>"/>
+                    <span class="nearby-ttl"><%=poi.poiname%></span>
+                    <span class="nearby-dst"><%=Filter.getDistance(poi.distance)%></span>
+                </a>
+                <%
+                    }
+                %>
+            </div>
+        </div>
+        <div class="collapse"></div>
+    </section>
+    <%}%>
+</script>
+
+<!-- 加载模块 -->
+<aside>
+    <div class="tab-bodys">
+        <div class="loading" style="display:none;">
+            <img width="90" src="image/b37.gif" />
+            <p>努力加载中...</p>
+        </div>
+        <div class="error" style="display:none;">
+            <img width="70" src="image/b15.gif">
+            <span>加载失败，请重试</span>
+        </div>
+        <div class="none" style="display:none;">
+            <span>没有更多了</span>
+        </div>
+    </div>
+</aside>
+</body>
+<!--<script type="text/javascript" src="http://172.22.229.156:8081/target/target-script-min.js#anonymous"></script>-->
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/url.js"></script>
+<script type="text/javascript" src="js/baiduTemplate.js"></script>
+<script type="text/javascript" src="js/baseTemplate.js"></script>
+<script type="text/javascript" src="bus/data.js"></script>
+<script type="text/javascript" src="bus/lovers-pub-subgroup.js"></script>
+<script type="text/javascript" src="bus/lovers.js"></script>
+<script>
+    console.timeEnd("app");
+</script>
+</html>

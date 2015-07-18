@@ -1,0 +1,15 @@
+框架
+1. 移动端基础框架
+zepto.js 语法与jquery几乎一样，会jquery基本会zepto~
+iscroll.js 解决页面不支持弹性滚动，不支持fixed引起的问题~ 实现下拉刷新，滑屏，缩放等功能~
+underscore.js 该库提供了一整套函数式编程的实用功能，但是没有扩展任何JavaScript内置对象。
+fastclick 加快移动端点击响应时间
+animate.css CSS3动画效果库
+2. 滑屏框架
+适合上下滑屏、左右滑屏等滑屏切换页面的效果
+fullpage.js
+swiper.js
+
+3.混合开发
+http://www.ionic.wang/
+http://d0cs.meteor.com/

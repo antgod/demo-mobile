@@ -1,0 +1,4 @@
+http://www.iinterest.net/2012/02/08/debugging-mobile-web-applications-with-the-weinre/
+
+
+weinre --httpPort 8081 --boundHost 192.168.1.136

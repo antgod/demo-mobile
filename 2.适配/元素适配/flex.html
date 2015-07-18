@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,user-scalable=no,target-densitydpi=medium-dpi"/>
+		<style>
+            /*自动生成flexbox的工具:http://the-echoplex.net/flexyboxes/*/
+
+            .flex-container {
+                display: inline-flex;  /*flex inline-flex*/
+                flex-direction: row   /*row row-reverse column column-reverse*/
+                flex-wrap:flex-wrap;       /*是否折行显示*/
+                justify-content: flex-start;
+                align-content: stretch;
+                align-items: flex-start;
+                background: #eee;
+            }
+
+            .flex-item{
+                border:1px solid red;
+                height: 50px;
+            }
+
+            .flex-item:nth-child(1) {
+                order: 0;
+                flex: 1 1 auto;
+                align-self: auto;
+
+            }
+
+            .flex-item:nth-child(2) {
+                order: 0;
+                flex: 1 1 auto;
+                align-self: auto;
+            }
+
+            .flex-item:nth-child(3) {
+                order: 0;
+                flex: 1 1 auto;
+                align-self: auto;
+            }
+		</style>
+	</head>
+	<body>
+		<footer class="flex-container">
+		    <div class="flex-item" >a</div>
+		    <div class="flex-item" >b</div>
+		    <div class="flex-item" >c</div>
+		</footer>
+	</body>
+</html>

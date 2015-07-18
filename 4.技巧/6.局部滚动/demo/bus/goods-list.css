@@ -1,0 +1,167 @@
+.goods-list {
+  padding: 0 8px;
+  /*商家*/
+  /*团单*/
+  /*附近*/
+  /*更多团购*/
+}
+.goods-list .goods-titlecon {
+  position: relative;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid #e1dedf;
+}
+.goods-list .goods-desc {
+  line-height: 2.5rem;
+  color: #33333d;
+}
+.goods-list .goods-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.goods-list .goods-cat {
+  float: right;
+}
+.goods-list .star-area,
+.goods-list .star-area > * {
+  height: 1.5rem;
+}
+.goods-list .star-label {
+  float: left;
+  line-height: 1.5rem;
+}
+.goods-list .star-off {
+  margin-left: 0.5rem;
+  float: left;
+  width: 6.58rem;
+  height: 1rem;
+  background-image: url(/image/star_off.gif);
+  background-size: 100% 100%;
+  vertical-align: middle;
+  margin-top: 0.1rem;
+}
+.goods-list .star-wrap {
+  overflow: hidden;
+}
+.goods-list .star-on {
+  width: 6.58rem;
+  height: 1rem;
+  background-image: url(/image/star_on.gif);
+  background-size: 100% 100%;
+  vertical-align: middle;
+}
+.goods-list .goods-loc {
+  float: right;
+  color: #88888d;
+}
+.goods-list .w-goods {
+  border-bottom: 1px solid #e1dedf;
+  padding: 0.5rem 0;
+}
+.goods-list .img-wrapper {
+  width: 6.6rem;
+  height: 5rem;
+  overflow: hidden;
+  float: left;
+  margin-right: 0.5rem;
+}
+.goods-list .deal-img {
+  height: 5rem;
+  margin-left: -0.6rem;
+}
+.goods-list .desc-wrap {
+  height: 5rem;
+  position: relative;
+  margin-left: 7rem;
+}
+.goods-list .desc-wrap > * {
+  width: 100%;
+}
+.goods-list .info {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goods-list .price {
+  position: absolute;
+  top: 2rem;
+  line-height: 1rem;
+}
+.goods-list .price ins {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #ff4683;
+  margin-right: 0.3rem;
+  font-weight: bold;
+}
+.goods-list .price del {
+  color: #9E9E9E;
+}
+.goods-list .goods-dj,
+.goods-list .goods-mj {
+  height: 1rem;
+  display: inline-block;
+  padding: 1px 3px;
+  color: #ff4683;
+  border: 1px solid #ff4683;
+  line-height: 1rem;
+  border-radius: 0.22rem;
+  margin-right: 3px;
+}
+.goods-list .other {
+  position: absolute;
+  bottom: 0;
+  color: #88888d;
+  white-space: nowrap;
+}
+.goods-list .nearby-title {
+  color: #666666;
+  padding: 0.3rem;
+}
+.goods-list .nearby-content {
+  padding: 0 3px;
+}
+.goods-list .nearby-item {
+  float: left;
+  color: #B6B6B6;
+  width: 50%;
+  height: 1.5rem;
+}
+.goods-list .nearby-item > * {
+  float: left;
+  height: 1rem;
+  line-height: 1rem;
+}
+.goods-list .nearby-ttl {
+  margin: 0 2px;
+  width: 60%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goods-list .more-item {
+  text-align: center;
+  border-bottom: 1px solid #e1dedf;
+  height: 3rem;
+  line-height: 3rem;
+}
+.goods-list .more-link {
+  text-align: center;
+  color: #33333d;
+  line-height: 1rem;
+  height: 1rem;
+}
+.goods-list .more-link img {
+  display: inline-block;
+  width: 13px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.goods-list .items .collapse {
+  height: 1rem;
+  border-top: 1px solid #e1dedf;
+  border-bottom: 1px solid #e1dedf;
+  background: #dcdcdc;
+}

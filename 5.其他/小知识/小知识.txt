@@ -1,0 +1,56 @@
+1、IOS上长按链接或者图片会默认弹出系统菜单，-webkit-touch-callout 可以禁止这个菜单的弹出（菜单默认是开启的），安卓不起作用
+a,img {
+    -webkit-touch-callout: none;
+}
+
+2、禁止选择文本（如果没有选择文本需要，建议最好加上）
+html,
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+3、避免屏幕旋转导致字体大小缩放
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
+4、更改IOS 可点击元素的高亮颜色：当透明度设为0，则会禁用此属性；当透明度设为1，元素在点击时不可见；除了iOS Safari，大部分 Android 手机也是支持的
+body {
+    -webkit-tap-highlight-color: rba(255, 255, 255, 0);
+}
+
+5、隐藏地址栏
+settTimeout(function (){
+    window.scrollTo(0, 1);
+}, 0);
+
+6、开启电话、短信功能
+// 电话
+<a href="tel:10086">10086</a>
+
+// 短信
+<a href="sms:10086">10086</a>
+
+// 邮箱
+<a href="mailto:example@gmai.com">example@gmail.com</a>
+
+7、判断屏幕方向
+switch (window.orientation){
+    case -90:
+    case 90:
+        alert("横屏:" + window.orientation);
+        break;
+    case 0:
+    case 180:
+        alert("竖屏:" + window.orientation);
+        break;
+}
+
+8、关闭 IOS 输入框首字母大写
+<input type="text" autocapitalize="off" />
+
+9、关闭 IOS 输入自动修正
+<input type="text" autocorrect="off" />

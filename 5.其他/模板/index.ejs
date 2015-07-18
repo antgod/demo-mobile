@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <style>
+        header{position: fixed;top: 0;left: 0;height: 3rem;line-height: 3rem; width:100%;
+            background: #ccc;box-shadow: 0 2px 2px;text-align: center;}
+        #content{margin-top: 3.2rem;}
+        footer{position: fixed;bottom: 0;left: 0;height: 3rem;line-height: 3rem; width:100%;
+            background: #ccc;box-shadow: 0 2px 2px;text-align: center;border-top:1px solid #aaa;}
+        nav{width:100%;display: flex;}
+        .nav{flex: 1;}
+    </style>
+    <script src="node_modules/handlebars/dist/handlebars.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <%
+        var i= 0,len=navs.length;
+                for(i;i<len;i++){
+            var nav=navs[i];
+        %>
+        <span class="nav"><%=nav%></span>
+        <%
+        }
+        %>
+
+    </nav>
+</header>
+<section id="content">
+
+</section>
+
+<script id="contentTpl" type="text/x-handlebars-template">
+    <div class="demo">
+        <h1>{{title}}</h1>
+    </div>
+</script>
+
+<footer>
+    <%=footer %>
+</footer>
+</body>
+<script>
+    //原生方法
+    var contentTpl = document.getElementById('contentTpl').innerHTML;
+    var content = document.getElementById('content');
+
+    //预编译模板
+    var template = Handlebars.compile(contentTpl);
+    //模拟json数据
+    var context = { title: "文章内容"};
+    //匹配json内容
+    var html = template(context);
+    //输入模板
+    content.innerHTML=html;
+</script>
+</html>

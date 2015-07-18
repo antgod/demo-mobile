@@ -1,0 +1,75 @@
+.pb-title {
+  background-color: #f0f0f0;
+  height: 2.5rem;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+}
+.pb-title .pb-title-txt {
+  background-image: url('/image/symbol3.png');
+  text-align: center;
+  position: absolute;
+  background-repeat: no-repeat;
+  font: bold 1.3rem/0.4rem "华文宋体";
+  width: 50%;
+  height: 0.6rem;
+  background-size: 100% 100%;
+  color: #33333d;
+  left: 50%;
+  top: 60%;
+  margin-left: -25%;
+  margin-top: -0.3rem;
+}
+.tab-bodys .loading span {
+  display: inline-block;
+  width: 100%;
+}
+.tab-bodys .loading {
+  text-align: center;
+  width: 100%;
+  margin: 0.01rem auto;
+}
+.tab-bodys .init span {
+  display: inline-block;
+  width: 100%;
+}
+.tab-bodys .init {
+  text-align: center;
+  width: 100%;
+  margin: 0.01rem auto;
+  height: 100%;
+  padding-top: 0.5rem;
+}
+.tab-bodys .initerror span {
+  display: inline-block;
+  width: 100%;
+}
+.tab-bodys .initerror {
+  text-align: center;
+  width: 100%;
+  margin: 0.01rem auto;
+  height: 100%;
+  padding-top: 0.5rem;
+}
+.tab-bodys .error span {
+  display: inline-block;
+  width: 100%;
+}
+.tab-bodys .error {
+  text-align: center;
+  width: 100%;
+  margin: 0.01rem auto;
+}
+.tab-bodys .none {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #ddd;
+  height: 3rem;
+  line-height: 3rem;
+}
+.tab-bodys .none span {
+  display: inline-block;
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+}
