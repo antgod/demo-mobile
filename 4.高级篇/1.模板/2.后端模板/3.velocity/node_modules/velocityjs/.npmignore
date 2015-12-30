@@ -1,0 +1,7 @@
+.DS_Store
+.gitignore
+.rvmrc
+Makefile
+tests/runner/*
+examples/*
+build/*

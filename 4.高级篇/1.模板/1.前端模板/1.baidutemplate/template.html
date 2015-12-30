@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head lang="en">
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+	    <title>标题</title>
+	    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/template.css"/>
+
+	</head>
+	<body>
+		<article class="wrap">
+			<header class="head"></header>
+            <section class="content"></section>
+			<footer class="foot"></footer>
+		</article>
+		<script id="headTpl" type="text/html">
+            <div><%=title%></div>
+			<nav>
+				<ul class='tabs clear'>
+                    <%
+                        var i=0,len=navs.length;
+                        for(var i=0;i<len;i++){
+                            var nav=navs[i]
+                    %>
+			        <li class="tab"><%=nav%></li>
+                    <%
+                        }
+                    %>
+				</ul>
+			</nav>
+		</script>
+		
+		<script id="contentTpl" type="text/html">
+            <%=content%>
+		</script>
+
+        <script id="footTpl" type="text/html">
+            <%
+                var i=0,len=footer.length;
+                for(var i=0;i<len;i++){
+                    var link=footer[i]
+            %>
+            <a href="" class="link"><%=link%></a>
+            <%
+                }
+            %>
+        </script>
+		
+
+	</body>
+
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <!-- 引入模板文件 -->
+	<script type="text/javascript" src="js/baiduTemplate.js"></script>
+	<script type="text/javascript" src="js/baseTemplate.js"></script>
+
+    <!-- 业务JS文件 -->
+    <script type="text/javascript" src="template.js"></script>
+</html>

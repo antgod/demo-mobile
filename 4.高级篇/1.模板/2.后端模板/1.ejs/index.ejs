@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <!--http://www.embeddedjs.com/-->
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3rem;
+            line-height: 3rem;
+            width: 100%;
+            background: #ccc;
+            box-shadow: 0 2px 2px;
+            text-align: center;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 3rem;
+            line-height: 3rem;
+            width: 100%;
+            background: #ccc;
+            box-shadow: 0 2px 2px;
+            text-align: center;
+            border-top: 1px solid #aaa;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+        }
+
+        .nav {
+            flex: 1;
+        }
+
+        #content{
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <%-header %>
+</header>
+<section id="content">
+    <%-content %>
+</section>
+<footer>
+    <%= footer %>
+</footer>
+</body>
+</html>

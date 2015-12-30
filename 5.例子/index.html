@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,target-densitydpi=medium-dpi"/>
+    <title>无标题文档</title>
+    <script src="mTouch.js"></script>
+    <script>
+        var iWidth = document.documentElement.clientWidth;
+        document.getElementsByTagName("html")[0].style.fontSize = iWidth / 3 + "px";
+    </script>
+    <style>
+        @-webkit-keyframes shake {
+            0% {
+                top: calc(100% - 0.6rem);
+            }
+            60% {
+                top: calc(100% - 0.5rem);
+            }
+            100% {
+                top: calc(100% - 0.6rem);
+            }
+        }
+
+        @-moz-keyframes shake {
+            0% {
+                top: calc(100% - 0.6rem);
+            }
+            60% {
+                top: calc(100% - 0.5rem);
+            }
+            100% {
+                top: calc(100% - 0.6rem);
+            }
+        }
+
+        @keyframes shake {
+            0% {
+                top: calc(100% - 0.6rem);
+            }
+            60% {
+                top: calc(100% - 0.5rem);
+            }
+            100% {
+                top: calc(100% - 0.6rem);
+            }
+        }
+
+        body {
+            font-size: 0.1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body, #page {
+            background: #000;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            left: 0;
+            top: 0;
+        }
+
+        #header {
+            background: -webkit-linear-gradient(top, #292929, #1e1e1e);
+            background: -moz-linear-gradient(top, #292929, #1e1e1e);
+            background: linear-gradient(top, #292929, #1e1e1e);
+            height: 0.4rem;
+            border-top: 2px solid #353535;
+            border-bottom: 2px solid #232323;
+            text-align: center;
+            line-height: 0.4rem;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        #footer {
+            background: -webkit-linear-gradient(top, #1e1f21, #121212);
+            background: -moz-linear-gradient(top, #1e1f21, #121212);
+            background: linear-gradient(top, #1e1f21, #121212);
+            height: 0.6rem;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            color: #fff;
+            text-align: center;
+            line-height: 0.55rem;
+            box-sizing: border-box;
+        }
+
+        #footer a {
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        #footer a:nth-of-type(1) {
+            border-right: 1px solid #222222;
+        }
+
+        #footer a:nth-of-type(2) {
+            border-left: 1px solid #222222;
+        }
+
+        #footer a.active {
+            border-color: #0e0e0e;
+            background: -webkit-linear-gradient(top, #101010, #070707);
+            background: -moz-linear-gradient(top, #101010, #070707);
+            background: linear-gradient(top, #101010, #070707);
+        }
+
+        #wrap {
+            width: 100%;
+            position: absolute;
+            top: 0.4rem;
+            bottom: 0.6rem;
+            overflow: hidden;
+        }
+
+        .wrap {
+            width: 100%;
+            position: absolute;
+        }
+
+        .wrap li {
+            background-size: cover;
+            border: 1px solid #000;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            float: left;
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.2;
+        }
+
+        .wrap li.show {
+            opacity: 1;
+        }
+
+        /*.wrap li:nth-of-type(1){ background-image:url(video/1.jpg);}
+        .wrap li:nth-of-type(2){ background-image:url(video/2.jpg);}
+        .wrap li:nth-of-type(3){ background-image:url(video/3.jpg);}
+        .wrap li:nth-of-type(4){ background-image:url(video/4.jpg);}
+        .wrap li:nth-of-type(5){ background-image:url(video/5.jpg);}
+        .wrap li:nth-of-type(6){ background-image:url(video/6.jpg);}
+        .wrap li:nth-of-type(7){ background-image:url(video/7.jpg);}
+        .wrap li:nth-of-type(8){ background-image:url(video/8.jpg);}
+        .wrap li:nth-of-type(9){ background-image:url(video/9.jpg);}
+        .wrap li:nth-of-type(10){ background-image:url(video/10.jpg);}
+        .wrap li:nth-of-type(11){ background-image:url(video/11.jpg);}
+        .wrap li:nth-of-type(12){ background-image:url(video/12.jpg);}
+        .wrap li:nth-of-type(13){ background-image:url(video/13.jpg);}
+        .wrap li:nth-of-type(14){ background-image:url(video/14.jpg);}
+        .wrap li:nth-of-type(15){ background-image:url(video/15.jpg);}
+        .wrap li:nth-of-type(16){ background-image:url(video/16.jpg);}
+        */
+        .picBox {
+            position: absolute;
+            z-index: 2;
+            perspective: 500px;
+            overflow: hidden;
+        }
+
+        .picBox div {
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            top: 0;
+            background-size: cover;
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+        }
+
+        .picBox > div {
+            left: 0 !important;
+        }
+
+        .picBoxOpen div {
+            -webkit-transform-origin: center 80%;
+            -moz-transform-origin: center 80%;
+            transform-origin: center 80%;
+            -webkit-transform: rotateY(-30deg) rotateX(5deg);
+            -moz-transform: rotateY(-30deg) rotateX(5deg);
+            transform: rotateY(-30deg) rotateX(5deg);
+        }
+
+        .picBoxOpen > div {
+            left: 50% !important;
+            -webkit-transform: rotateY(-30deg) rotateX(2deg);
+            -moz-transform: rotateY(-30deg) rotateX(2deg);
+            transform: rotateY(-30deg) rotateX(2deg);
+        }
+
+        .btn {
+            position: absolute;
+            right: 10px;
+            top: 0.05rem;
+            width: 0.4rem;
+            height: 0.25rem;
+            box-shadow: inset 0 0 2px #2a2a2a, 0 0 2px #252525;
+            border: 2px solid #0d0d0d;
+            line-height: 0.25rem;
+            border-radius: 5px;
+        }
+
+        #btn2 {
+            right: auto;
+            left: 10px;
+            display: none;
+        }
+
+        #recycle, #recycle2 {
+            width: 1.2rem;
+            height: 1.2rem;
+            background: url(img/recycle2.png) no-repeat center 0;
+            background-size: contain;
+            position: absolute;
+            z-index: 1;
+            left: calc(50% - 0.6rem);
+            top: 100%;
+            transition: .5s;
+        }
+
+        #recycle2 {
+            background: url(img/recycle.png) center bottom no-repeat;
+            z-index: 3;
+            background-size: contain;
+        }
+
+        #page .recycleUp {
+            top: calc(100% - 0.4rem);
+        }
+
+        #page .recycleUp2 {
+            transition: .2s;
+            top: calc(100% - 0.6rem);
+            -webkit-animation: .3s .66s shake;
+            -moz-animation: .3s .66s shake;
+            animation: .3s .66s shake;
+        }
+    </style>
+</head>
+<body>
+<article id="page">
+    <header id="header"><a href="javascript:;" id="btn2" class="btn">删除</a> 相机相册 <a href="javascript:;" id="btn"
+                                                                                    class="btn">选择</a></header>
+    <div id="wrap">
+        <ul class="wrap">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <footer id="footer">
+        <a href="javascaipt:;" class="active">相机相册</a>
+        <a href="javascaipt:;">所有相册</a>
+    </footer>
+    <div id="recycle"></div>
+    <div id="recycle2"></div>
+</article>
+<script>
+window.onload = fnLoad;
+function fnLoad() {
+    var oPage = document.getElementById("page");
+    var oWrap = document.getElementById("wrap");
+    var oList = oWrap.children[0];
+    var aImg = oWrap.getElementsByTagName("li");
+    var aBtn = document.getElementById("btn");
+    var aBtn2 = document.getElementById("btn2");
+    var oRecycle = document.getElementById("recycle");
+    var oRecycle2 = document.getElementById("recycle2");
+    var bOff = true;
+    var arr = [];
+    var iCeil = 3;
+    var bStart = true;
+    var oScroll = new mScroll("wrap", "y");
+    oList.style.height = Math.ceil(aImg.length / iCeil) + "rem";
+    aBtn.addEventListener("touchend", init, false);
+    aBtn2.addEventListener("touchend", fnDel, false);
+    oScroll.onScrollMove = function () {
+        selected();
+    };
+    selected();
+    function selected() {
+        for (var i = 0; i < aImg.length; i++) {
+            aImg[i].style.transition = "1s";
+            if (aImg[i].offsetTop >= Math.abs(oScroll.iScroll) && aImg[i].offsetTop + aImg[i].offsetHeight <= Math.abs(oScroll.iScroll) + oWrap.clientHeight) {
+                aImg[i].className = "show";
+            }
+            else {
+                aImg[i].className = "";
+            }
+        }
+    }
+
+    function init() {
+        if (bOff) {
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].index = i;
+                aImg[i].addEventListener("touchend", fnRemove, false);
+            }
+            aBtn.innerHTML = "取消";
+        }
+        else {
+            var aPicBox = oPage.getElementsByClassName("picBox");
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].removeEventListener("touchend", fnRemove, false);
+            }
+            aBtn.innerHTML = "选择";
+            aBtn2.style.display = "none";
+            for (var i = 0; i < aPicBox.length; i++) {
+                fn3dOpen(aPicBox[i]);
+            }
+            arr.length = 0;
+        }
+        bOff = !bOff;
+    }
+
+    function fnDel() {
+        var aPicBox = oPage.getElementsByClassName("picBox");
+        var oTimer = null;
+        oRecycle2.className = oRecycle.className = "recycleUp2";
+        for (var i = 0; i < aPicBox.length; i++) {
+            aPicBox[i].style.transition = ".5s .3s top,.3s left";
+            aPicBox[i].style.left = (oPage.clientWidth - aPicBox[i].offsetWidth) / 2 - 10 + "px";
+            aPicBox[i].style.top = "calc(100% - 10px)";
+            aPicBox[i].addEventListener("webkitTransitionEnd", end, false);
+            aPicBox[i].addEventListener("transitionend", end, false);
+        }
+        function end(ev) {
+            if (ev.propertyName == "top") {
+                arr.push(this.index);
+                oPage.removeChild(this);
+                if (!oTimer) {
+                    oTimer = setTimeout(function () {
+                        oRecycle2.addEventListener("webkitTransitionEnd", end2, false);
+                        oRecycle2.addEventListener("transitionend", end2, false);
+                        oRecycle2.className = oRecycle.className = "";
+                        oRecycle2.style.cssText = oRecycle.style.cssText = "";
+                    }, 300);
+                }
+            }
+        }
+
+        function end2() {
+            var i = 0;
+            this.removeEventListener("webkitTransitionEnd", end2, false);
+            this.removeEventListener("transitionend", end2, false);
+            arr = arr.sort(function (a, b) {
+                return a - b;
+            });
+            while (arr.length) {
+                var iNub = arr.pop();
+                oList.removeChild(aImg[iNub]);
+            }
+            init();
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].style.transition = ".5s";
+            }
+            toSize();
+        }
+    }
+
+    function fnRemove() {
+        if (this.className != "show") {
+            return;
+        }
+        aBtn2.style.display = "block";
+        oRecycle2.className = oRecycle.className = "recycleUp";
+        fn3dCreate(this.index);
+    }
+
+    toSize();
+    function toSize() {
+        for (var i = 0; i < aImg.length; i++) {
+            aImg[i].index = i;
+            if (bStart) {
+                aImg[i].style.backgroundImage = "url(video/" + (i + 1) + ".jpg)";
+            }
+            aImg[i].style.cssText += "position:absolute;left:" + (i % iCeil) + "rem;top:" + (Math.floor(i / iCeil)) + "rem";
+        }
+        oList.style.height = Math.ceil(aImg.length / iCeil) + "rem";
+        setTimeout(function () {
+            selected();
+        }, 500);
+        if (bStart) {
+            bStart = false;
+        }
+    }
+
+    function fn() {
+        this.style.transition = "0s";
+        this.removeEventListener("webkitTransitionEnd", fn, false);
+        this.removeEventListener("transitionend", fn, false);
+    }
+
+    function fn3dCreate(index) {
+        var oLi = aImg[index];
+        var oBox = document.createElement("div");
+        var iWidth = oLi.clientWidth;
+        var iHeight = oLi.clientHeight;
+        var iLeft = fnOffset(oLi).l + 1;
+        var iTop = fnOffset(oLi).t + 1 + oScroll.iScroll;
+        var sBg = getComputedStyle(oLi)["backgroundImage"];
+        var aDiv = oBox.getElementsByTagName("div");
+        oBox.index = index;
+        oBox.innerHTML = "<div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div><div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div>";
+        oBox.className = "picBox";
+        oBox.style.width = iWidth + "px";
+        oBox.style.height = iHeight + "px";
+        oBox.style.left = iLeft + "px";
+        oBox.style.top = iTop + "px";
+        oPage.appendChild(oBox);
+        var iDivW = Math.ceil(iWidth / aDiv.length);
+        for (var i = 0; i < aDiv.length; i++) {
+            aDiv[i].style.width = iDivW + "px";
+            aDiv[i].style.left = iDivW + "px";
+            aDiv[i].style.backgroundImage = sBg;
+            aDiv[i].style.backgroundPosition = -iDivW * i + "px 0";
+        }
+        oLi.style.backgroundSize = "0px 0px";
+        fn3dClos(oBox, aDiv);
+    }
+
+    function fn3dClos(oBox, aDiv) {
+        for (var i = 0; i < aDiv.length; i++) {
+            aDiv[i].style.transition = ".8s";
+        }
+        setTimeout(function () {
+            oBox.className = "picBox picBoxOpen";
+        }, 30);
+    }
+
+    function fn3dOpen(oBox) {
+        var aDiv = oBox.getElementsByTagName("div");
+        for (var i = 0; i < aDiv.length; i++) {
+            aDiv[i].style.transition = ".4s";
+        }
+        oBox.className = "picBox";
+        aDiv[i - 1].addEventListener("webKitTransitionEnd", end, false);
+        aDiv[i - 1].addEventListener("transitionend", end, false);
+        function end() {
+            this.removeEventListener("transitionend", end, false);
+            this.removeEventListener("webKitTransitionEnd", end, false);
+            aImg[oBox.index].style.backgroundSize = "cover";
+            oPage.removeChild(oBox);
+        }
+    }
+}
+;
+function fnOffset(obj) {
+    var t = l = 0;
+    while (obj) {
+        t += obj.offsetTop;
+        l += obj.offsetLeft;
+        obj = obj.offsetParent;
+    }
+    return {l: l, t: t};
+}
+</script>
+</body>
+</html>

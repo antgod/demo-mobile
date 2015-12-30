@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*http://www.w3cplus.com/css3/a-visual-guide-to-css3-flexbox-properties.html*/
+        .flex {
+            display: -webkit-box;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+
+            width: 110px;
+
+            -webkit-flex-wrap: wrap; /* Safari */
+            flex-wrap:         wrap;
+
+            -webkit-flex-direction: row; /* 横纵向 */
+            flex-direction:         row;
+
+            -webkit-justify-content: flex-end; /* 对其方式：start center end*/
+            justify-content:         flex-end;
+        }
+
+        .flex .hor {
+            width: 30px;
+            background: #ccc;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .flex2 {
+            border: 1px solid #000000;
+            display: -webkit-box;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+
+            width: 300px;
+
+            -webkit-flex-wrap: wrap; /* Safari */
+            flex-wrap:         wrap;
+
+            -webkit-flex-direction: row; /* 横纵向 */
+            flex-direction:         row;
+
+
+
+        }
+
+        .flex2 .hor {
+            width: 30px;
+            background: #ccc;
+            margin: 5px;
+            text-align: center;
+        }
+        .flex2 .hor:nth-child(4) {
+            width: 30px;
+            background: #ccc;
+            margin: 5px;
+            text-align: center;
+            -webkit-order: -1; /* 顺序 */
+            order:       -1;
+            -webkit-flex-grow: 2; /* 放大比例 */
+            flex-grow:      2;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="flex">
+    <div class="hor">1</div>
+    <div class="hor">2</div>
+    <div class="hor">3</div>
+    <div class="hor">4</div>
+    <div class="hor">5</div>
+    <div class="hor">6</div>
+</div>
+
+
+<div class="flex2">
+    <div class="hor">1</div>
+    <div class="hor">2</div>
+    <div class="hor">3</div>
+    <div class="hor">4</div>
+    <div class="hor">5</div>
+    <div class="hor">6</div>
+</div>
+</body>
+</html>

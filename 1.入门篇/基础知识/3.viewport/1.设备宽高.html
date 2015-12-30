@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>device-size</title>
+		<!-- 宽度为设备宽度 -->
+		<meta name="viewport"
+			content="width=device-width,height=device-height" />
+		<style>
+			.box {
+				width: 600px;
+				height: 600px;
+				background: Red;
+			}
+			
+			*{margin:0px;padding:0px;}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script>
+			alert(document.documentElement.clientWidth);
+		</script>
+	</body>
+</html>

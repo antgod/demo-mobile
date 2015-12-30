@@ -1,0 +1,27 @@
+移动端事件
+1.touchstart
+2.touchmove
+3.touchend
+
+Emulation
+	谷歌浏览器开发者工具插件
+Device -- 设备信息
+	model 设备选择
+	resolution 分辨率设置
+	device pixel radio 像素比（物理像素与独立像素比例）
+	iphone4以上 1136*640 独立像素 568*320 物理像素 ，比例2:1，安卓1.5:1
+	
+	*emulate mobile 模拟移动端特性
+	*shrink to fit 自动适应屏幕大小
+Media -- 媒体查询
+Network -- user agent 
+sensors -- 传感器
+	Emulate tou screen 模拟触摸屏触摸
+	
+	Device Geolocation ovvrides -- 模拟地理信息
+	
+	Accelerometer -- 模拟陀螺仪：赛车、摇一摇 α、β，γ：z,x,y轴旋转（逆时针）
+	
+	
+解决谷歌浏览器不能直接在dom上加事件（如test.ontouchend）	
+在浏览器属性-快捷方式-目标加上 " --touch-events",重启浏览器

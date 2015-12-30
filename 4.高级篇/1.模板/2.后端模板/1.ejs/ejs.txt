@@ -1,0 +1,33 @@
+node.js 模板引ejs。
+搜了一把推荐用ejs的最多。
+速度比对：http://www.cnblogs.com/fengmk2/archive/2011/04/28/2031971.html
+
+ejs速度不是最快的，推荐最多大概是因为其简单的语法结构。主要通过<% %><%=%>来嵌套代码。比如符合阅读逻辑，同时也省去不少学习语法的成本。
+另有一些自定义的方法：如link_to(name, url)，img_tag(url)等。
+还可以支持json。
+===========
+ejs的特性：
+    1、缓存功能，能够缓存已经解析好的html模版；
+    2、<% code %>用于执行其中javascript代码；
+    3、<%= code %>会对code进行html转义；
+    4、<%- code %>将不会进行转义；
+    5、支持自定义标签，比如'<%'可以使用'{{'，'%>'用'}}'代替；
+    6、提供一些辅助函数，用于模版中使用
+    7、利用<%- include filename %>加载其他页面模版；
+
+    使用示例
+    1、ejs.compile(str, options); 将返回内部解析好的Function函数
+    2、ejs.render(str, options); 返回经过解析的字符串
+
+    其中options的一些参数为：
+    1、cache：是否缓存解析后的模版，需要filename作为key；
+    2、filename：模版文件名；
+    3、scope：complile后的Function执行所在的上下文环境；
+    4、debug：标识是否是debeg状态，debug为true则会输出生成的Function内容；
+    5、compileDebug：标识是否是编译debug，为true则会生成解析过程中的跟踪信息，用于调试；
+    6、client，标识是否用于浏览器客户端运行，为true则返回解析后的可以单独运行的Function函数；
+    7、open，代码开头标记，默认为'<%'；
+    8、close，代码结束标记，默认为'%>'；
+    9、其他的一些用于解析模版时提供的变量。
+    在express中使用时，options参数将由response.render进行传入，其中包含了一些express中的设置，以及用户提供的变量值。
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="touch.min.js"></script>
+</head>
+<body>
+   <div style="height: 2000px;" class="target"></div>
+</body>
+<script>
+//    http://touch.code.baidu.com/examples.html
+    touch.on('.target', 'swipeleft swiperight', function(ev){
+        console.log("you have done", ev.type);
+    });
+</script>
+</html>

@@ -1,0 +1,9 @@
+click 事件在移动端会有300ms的延迟  
+
+touch事件
+
+touchstart == mousedown
+
+touchmove == mousemove
+
+touchend == mouseup

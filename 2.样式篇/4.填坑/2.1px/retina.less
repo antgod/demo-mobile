@@ -1,0 +1,91 @@
+// 1px on Retina
+// -----------------------------------------------------------------------------
+.retina(@top: transparent, @right: transparent, @bottom: transparent, @left: transparent, @w: 1px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    border: none;
+    background-image: -webkit-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+    -webkit-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+    -webkit-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+    -webkit-linear-gradient(0, @left, @left 50%, transparent 50%);
+    background-image: -moz-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+    -moz-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+    -moz-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+    -moz-linear-gradient(0, @left, @left 50%, transparent 50%);
+    background-image: -o-linear-gradient(270deg, @top, @top 50%, transparent 50%),
+    -o-linear-gradient(180deg, @right, @right 50%, transparent 50%),
+    -o-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%),
+    -o-linear-gradient(0, @left, @left 50%, transparent 50%);
+    background-image: linear-gradient(180deg, @top, @top 50%, transparent 50%),
+    linear-gradient(270deg, @right, @right 50%, transparent 50%),
+    linear-gradient(0deg, @bottom, @bottom 50%, transparent 50%),
+    linear-gradient(90deg, @left, @left 50%, transparent 50%);
+    background-size: 100% @w, @w 100%, 100% @w, @w 100%;
+    background-repeat: no-repeat;
+    background-position: top, right top, bottom, left top;
+  }
+}
+
+.top-1px(@color: transparent, @w: 1px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    border: none;
+    background-image: -webkit-linear-gradient(270deg, @color, @color 50%, transparent 50%);
+    background-image: -moz-linear-gradient(270deg, @color, @color 50%, transparent 50%);
+    background-image: -o-linear-gradient(270deg, @color, @color 50%, transparent 50%);
+    background-image: linear-gradient(180deg, @color, @color 50%, transparent 50%);
+    background-size: 100% @w;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+}
+
+.top-botom-1px(@top: transparent, @bottom: transparent,@w: 1px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    border: none;
+    background-image: -webkit-linear-gradient(270deg, @top, @top 50%, transparent 50%),-webkit-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%);
+    background-image: -moz-linear-gradient(270deg, @top, @top 50%, transparent 50%),-moz-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%);
+    background-image: -o-linear-gradient(270deg, @top, @top 50%, transparent 50%),-o-linear-gradient(90deg, @bottom, @bottom 50%, transparent 50%);
+    background-image: linear-gradient(180deg, @top, @top 50%, transparent 50%),linear-gradient(0deg, @bottom, @bottom 50%, transparent 50%);
+    background-size: 100% @w, 100% @w;
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+  }
+}
+
+.right-1px(@color: transparent, @w: 1px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    border: none;
+    background-image: -webkit-linear-gradient(180deg, @color, @color 50%, transparent 50%);
+    background-image: -moz-linear-gradient(180deg, @color, @color 50%, transparent 50%);
+    background-image: -o-linear-gradient(180deg, @color, @color 50%, transparent 50%);
+    background-image: linear-gradient(90deg, @color, @color 50%, transparent 50%);
+    background-size: @w 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+}
+
+.bottom-1px(@color:transparent, @w: 1px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    border: none;
+    background-image: -webkit-linear-gradient(90deg, @color, @color 50%, transparent 50%);
+    background-image: -moz-linear-gradient(90deg, @color, @color 50%, transparent 50%);
+    background-image: -o-linear-gradient(90deg, @color, @color 50%, transparent 50%);
+    background-image: linear-gradient(0, @color, @color 50%, transparent 50%);
+    background-size: 100% @w;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+}
+
+.left-1px(@color: transparent, @w: 1px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    border: none;
+    background-image: -webkit-linear-gradient(0deg, @color, @color 50%, transparent 50%);
+    background-image: -moz-linear-gradient(0deg, @color, @color 50%, transparent 50%);
+    background-image: -o-linear-gradient(0deg, @color, @color 50%, transparent 50%);
+    background-image: linear-gradient(270deg, @color, @color 50%, transparent 50%);
+    background-size: @w 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+}

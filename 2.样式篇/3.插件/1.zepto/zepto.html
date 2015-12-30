@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="zepto.js"></script>
+    <meta name="viewport" content="width=device-width,user-scalable=no,target-densitydpi=medium-dpi"/>
+    <style>
+        .div{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div"></div>
+</body>
+<script>
+    //http://www.zeptojs.cn/#Touch events
+    $(".div").on("tap",function(){
+        alert("单击");
+    });
+</script>
+</html>

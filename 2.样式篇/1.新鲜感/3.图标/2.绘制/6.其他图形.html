@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .left,.middle,.right,.left1,.middle1,.right1{ width: 200px;float: left;}
+        .heart {
+            margin-top: 100px;
+            width: 0;
+            height: 0;
+            border-left: 90px solid #fff;
+            border-right: 90px solid #fff;
+            border-top: 100px solid red;
+            position: relative;
+        }
+
+        .heart:after{
+            content: "";
+            background-color: red;
+            width: 110px;/*宽度为高度的2倍*/
+            height: 55px;
+            left: -90px;
+            top:-155px;
+            position: absolute;
+            border-radius: 55px 55px 0 0;/*圆角半径为高度的值*/
+        }
+
+
+        .heart:before{
+            content: "";
+            background-color: red;
+            width: 110px;/*宽度为高度的2倍*/
+            height: 55px;
+            left: -20px;
+            top:-155px;
+            position: absolute;
+            border-radius: 55px 55px 0 0;/*圆角半径为高度的值*/
+        }
+
+        .egg {
+            display:<span id="8_nwp" style="width: auto; height: auto; float: none;"><a id="8_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=cb8c0c3c97f9a4e8&k=block&k0=block&kdi0=0&luki=8&n=10&p=baidu&q=06011078_cpr&rb=0&rs=1&seller_id=1&sid=e8a4f9973c0c8ccb&ssp2=1&stid=0&t=tpclicked3_hc&td=1922429&tu=u1922429&u=http%3A%2F%2Fwww%2Eadmin10000%2Ecom%2Fdocument%2F1103%2Ehtml&urlid=0" target="_blank" mpid="8" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">block</span></a></span>;
+            width: 126px;
+            height: 180px;
+            background-color: red;
+            -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+            border-radius:        50%   50%  50%  50%  / 60%   60%   40%  40%;
+        }
+
+        .pacman {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: red;
+            position: relative;
+        }
+
+        .pacman:after{
+            content: "";
+            border-right: 50px solid #fff;
+            border-top: 25px solid transparent;
+            border-bottom: 25px solid transparent;
+            position: absolute;
+            left: 50px;
+            top: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="left">
+    心形
+    <div class="heart div"></div>
+
+    椭圆
+    <div class="egg div"></div>
+
+    吃豆
+    <div class="pacman div"></div>
+</div>
+</body>
+</html>

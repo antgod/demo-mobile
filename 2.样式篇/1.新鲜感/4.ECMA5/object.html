@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function Person(){
+            Object.defineProperty(this,"name",{         //定义一个属性
+                enumerable:true,	    //默认：不能迭代
+                //configurable:false,   //不能删除
+                //writable:false,		//不能重写
+//                value:'lhj',            //属性值，不能与get,set同时使用
+                set: function(value) {
+                    name =value;
+                },
+                get: function() {
+                    return "My name is:"+name;
+                }
+            });
+
+        }
+        var lhj=new Person();
+        lhj.name="lhj";
+
+        console.log(lhj.name);
+
+        for(var i in lhj){
+            console.log(lhj[i])
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

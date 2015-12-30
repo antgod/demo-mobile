@@ -1,0 +1,13 @@
+<ul>
+    <%
+    var i = 0, len = names.length;
+            for(i;i < len;i++){
+        var name = names[i];
+    %>
+    <li class="list-item"><%= name %></li>
+    <%
+    }
+    %>
+
+    <%=filters.last(names)%>
+</ul>

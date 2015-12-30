@@ -1,0 +1,81 @@
+<html>
+<head>
+    <!--http://www.w3cfuns.com/article-5592115-1-1.html-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="ace.js"></script>
+    <title>ace template examples | 前端开发网(W3Cfuns.com)</title>
+    <style type="text/css">#log {
+        width: 600px;
+        height: 400px;
+    }</style>
+</head>
+<body>
+<textarea id="log"></textarea>
+<script id="t1" type="text/template">
+    if (this["title"])
+    {
+    #{title}
+    }
+    else
+    {
+    <b>无</b>
+    }
+</script>
+
+<script type="text/javascript">
+    (function () {
+        var log = document.getElementById("log");
+        var list = [
+            {
+                input : ["#{this}", "<b>b</b>"],
+                output: "&lt;b&gt;b&lt;/b&gt;"
+            },
+            {
+                input : ["!#{this}", "<b>b</b>"],
+                output: "<b>b</b>"
+            },
+            {
+                input : ["#{title}#{size}", {
+                    title: "t"
+                }],
+                output: "t"
+            },
+            {
+                input: ["#{title}#{size + 2}", {
+                    title: "t"
+                }],
+                error: true
+            },
+            {
+                input : ["#{1 + 2 + 3 + 4}"],
+                output: "10"
+            },
+            {
+                input : ["t1"],
+                output: "\t\t\t\t<b>无</b>\n"
+            }
+        ];
+
+        var message = [];
+        for (var i = 0; i < list.length; i++) {
+            var item = list[i];
+            try {
+                var output = AceTemplate.format(item.input[0], item.input[1]);
+                if (output == item.output) {
+                    message.push("√" + i + "输出结果符合预期。");
+                } else {
+                    message.push("×" + i + "输出结果不符合预期。-- " + output);
+                }
+            } catch (ex) {
+                if (item.error) {
+                    message.push("√" + i + "异常符合预期。");
+                } else {
+                    message.push("×" + i + "异常不符合预期。-- " + ex.message);
+                }
+            }
+        }
+        log.value = message.join("\n");
+    })();
+</script>
+</body>
+</html>

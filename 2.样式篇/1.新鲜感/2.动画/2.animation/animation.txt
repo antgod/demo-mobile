@@ -1,0 +1,36 @@
+属性			描述
+@keyframes	规定动画。
+
+
+
+animation 所有动画属性的简写属性，除了 animation-play-state 属性。
+    顺序：name,duration,timing-function,delay,iteration-count,direction,play-state,fill-mode
+
+animation-name 规定 @keyframes 动画的名称。
+
+animation-duration 规定动画完成一个周期所花费的秒或毫秒。默认是 0。
+
+animation-timing-function 规定动画的速度曲线。默认是 "ease"。
+	1.ease：（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0).
+	2.linear：（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0).
+	3.ease-in：(加速)，ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0).
+	4.ease-out：（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0).
+	5.ease-in-out：（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)
+	6.cubic-bezier：（该值允许你去自定义一个时间曲线）， 特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。
+
+animation-delay	规定动画何时开始。默认是 0。
+
+animation-iteration-count 规定动画被播放的次数。默认是 1。
+    0\1\2\……\infinite
+
+animation-direction	规定动画是否在下一周期逆向地播放。默认是 "normal"。
+    normal\alternate
+
+animation-play-state 规定动画是否正在运行或暂停。默认是 "running"。
+    paused\running
+
+animation-fill-mode 规定动画结束时候状态
+    1.none:默认值。不设置对象动画之外的状态
+    2.forwards:设置对象状态为动画结束时的状态
+    3.backwards:设置对象状态为动画开始时的状态
+    4.both:设置对象状态为动画结束或开始的状态

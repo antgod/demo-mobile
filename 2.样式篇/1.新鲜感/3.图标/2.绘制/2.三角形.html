@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div{ margin-top: 10px;   width: 0;  height: 0;  }
+        .left,.middle,.right,.left1,.middle1,.right1{ width: 200px;float: left;}
+        .left .div1 {
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid red;
+        }
+
+        .left .div2 {
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 100px solid red;
+        }
+
+        .left .div3 {
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 100px solid red;
+        }
+
+        .left .div4 {
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-right: 100px solid red;
+        }
+
+        .middle .div1 {
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 100px solid red;
+        }
+
+        .middle .div2 {
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 100px solid red;
+        }
+
+        .middle .div3 {
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-top: 100px solid red;
+        }
+
+        .middle .div4 {
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-right: 100px solid red;
+        }
+
+        .right .div1 {
+            border-right: 100px solid transparent;
+            border-top: 100px solid red;
+        }
+
+        .right .div2 {
+            border-top: 100px solid red;
+            border-left: 100px solid transparent;
+        }
+
+        .right .div3 {
+            border-bottom: 100px solid red;
+            border-left: 100px solid transparent;
+        }
+
+        .right .div4 {
+            border-bottom: 100px solid red;
+            border-right: 100px solid transparent;
+        }
+
+        .left1 .div1 {
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 100px solid red;
+            transform:scale(0.75) translate(0,-0px);
+        }
+
+        .left1 .div2 {
+            border-left: 100px solid red;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            transform:scale(0.75) translate(0,-50px);;
+        }
+
+        .left1 .div3 {
+            border-left: 100px solid transparent;
+            border-top: 100px solid red;
+            border-right: 100px solid transparent;
+            transform:scale(0.75) translate(0,-100px);;
+        }
+
+        .left1 .div4 {
+            border-right: 100px solid red;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            transform:scale(0.75) translate(0,-150px);;
+        }
+    </style>
+</head>
+<body>
+<div class="left">
+    等腰三角
+    <div class="div1 div"></div>
+    <div class="div2 div"></div>
+    <div class="div3 div"></div>
+    <div class="div4 div"></div>
+</div>
+<div class="middle">
+    全等三角
+    <div class="div1 div"></div>
+    <div class="div2 div"></div>
+    <div class="div3 div"></div>
+    <div class="div4 div"></div>
+</div>
+<div class="right">
+    直角三角
+    <div class="div1 div"></div>
+    <div class="div2 div"></div>
+    <div class="div3 div"></div>
+    <div class="div4 div"></div>
+</div>
+<div class="left1">
+    直角三角2
+    <div class="div1 div"></div>
+    <div class="div2 div"></div>
+    <div class="div3 div"></div>
+    <div class="div4 div"></div>
+</div>
+</body>
+</html>

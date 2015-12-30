@@ -1,0 +1,4 @@
+@charset "utf-8";
+/* CSS Document */
+.wrap{border:1px solid #000; font:14px/28px "宋体";color:#000; text-indent:2em;
+-webkit-column-count:4; -webkit-column-gap:30px; -webkit-column-rule:1px solid #000;}

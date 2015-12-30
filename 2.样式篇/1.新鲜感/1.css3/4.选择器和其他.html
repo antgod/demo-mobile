@@ -1,0 +1,83 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <style>
+        html, body, #wrapper {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            height: 50%;
+            width: 80%;
+        }
+
+        #header {
+            display:block;
+            height: 30px;
+            line-height: 30px;
+            background: #5bc0de;
+            text-align: center;
+            border: 1px dotted #000000;
+        }
+
+        #main {
+            display: table;
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px dotted #000000;
+        }
+
+        #nav {
+            display: table-cell;
+            width: 180px;
+            background-color: #e7dbcd;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px dotted #000000;
+        }
+
+        #extras {
+            display: table-cell;
+            width: 180px;
+            padding-left: 10px;
+            background-color: #eee;
+            border: 1px dotted #000000;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #content {
+            display: table-cell;
+            padding-left: 10px;
+            background-color: #ccc;
+            border: 1px dotted #000000;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header" clospan="3">
+        header
+    </div>
+    <div id="main">
+        <div id="nav">
+            <span>nav</span>
+        </div>
+        <div id="extras">
+            <div>extras</div>
+        </div>
+        <div id="content">
+            content
+        </div>
+    </div>
+</div>
+</body>
+</html> 

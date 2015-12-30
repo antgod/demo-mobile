@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        body,ul{margin: 0;padding: 0;}
+        header,footer{width: 100%;}
+
+        header{
+            height: 30px;
+            line-height: 30px;
+            background: #ccc;
+            position: fixed;
+            top:0;
+        }
+
+        footer{
+            height: 30px;
+            line-height: 30px;
+            background: #ccc;
+            position: fixed;
+            bottom: 0;
+        }
+
+        section{
+            margin: 30px 0;
+        }
+
+        section .list{
+            list-style: none;
+            display: -webkit-box;
+            display: -webkit-flex; /* Safari */
+            -webkit-justify-content: space-between; /* Safari */
+            justify-content:         space-between;
+            display: flex;
+            -webkit-flex-wrap: wrap; /* Safari */
+            flex-wrap:         wrap;
+        }
+
+        .list li{
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            background: pink;
+            margin: 5px;
+            display: table-cell;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<header>头部</header>
+<section>
+    <ul class="list">
+        <li class="item" id="idx">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+        <li class="item">4</li>
+        <li class="item">5</li>
+        <li class="item">6</li>
+        <li class="item">7</li>
+        <li class="item">8</li>
+        <li class="item">9</li>
+        <li class="item">10</li>
+        <li class="item">11</li>
+        <li class="item">12</li>
+    </ul>
+</section>
+<footer>底部</footer>
+<script>
+    var Photo=(function(){
+        var Photo=function(){
+            var options=[].shift.call(arguments);
+            this.curPos={x:0,y:0};
+
+            this.listWrapper=document.querySelector(".list");
+            this.lists=document.querySelectorAll(options.selector);
+            this.pois=[];
+            this.setPois();
+            this.dispatchEvent();
+        };
+
+        var fn=Photo.prototype;
+
+        fn.setPois=function(){
+            var self=this;
+            [].slice.call(this.lists).forEach(function(item,idx){
+                self.pois.push({
+                    x:item.offsetLeft,
+                    y:item.offsetTop,
+                    idx:idx
+                });
+            });
+        };
+
+        fn.dispatchEvent=function(){
+            var self=this,targetNodeProxy,targetNode;
+            [].slice.call(this.lists).forEach(function(item){
+               if(item.nodeType==1)
+                    item.addEventListener('touchstart', function (ev) {
+                        ev.preventDefault();//阻止其他事件
+
+                        targetNode=ev.target;
+
+                        if (ev.targetTouches.length == 1) {
+                            var touch = ev.targetTouches[0];  // 把元素放在手指所在的位置
+                            self.curPos={x:(touch.pageX-targetNode.offsetLeft) ,y:(touch.pageY-targetNode.offsetTop)};
+                            targetNodeProxy=targetNode.cloneNode(true);
+                            targetNodeProxy.style.position="absolute";
+                            targetNodeProxy.style.top=targetNode.offsetTop+"px";
+                            targetNodeProxy.style.left=targetNode.offsetLeft+"px";
+                            targetNodeProxy.style.opacity=0.8;
+                            targetNodeProxy.style.border="1px solid black";
+                            self.listWrapper.appendChild(targetNodeProxy);
+                        }
+                    }, false);
+
+                    item.addEventListener('touchmove', function (ev) {
+                        ev.preventDefault();//阻止其他事件
+                        // 如果这个元素的位置内只有一个手指的话
+                        if (ev.targetTouches.length == 1) {
+                            var touch = ev.targetTouches[0];  // 把元素放在手指所在的位置
+                            targetNodeProxy.style.left = touch.pageX-self.curPos.x + 'px';
+                            targetNodeProxy.style.top = touch.pageY-self.curPos.y + 'px';
+                        }
+                    }, false);
+
+                    item.addEventListener('touchend', function (ev) {
+                        self.listWrapper.removeChild(targetNodeProxy);
+                        var targetNodeCur=-1;
+                            var touch = ev.changedTouches[0];  // 把元素放在手指所在的位置
+                            var x = touch.pageX;
+                            var y = touch.pageY;
+                            for(var i= 0,item;item=self.pois[i++];) {
+                                if(x>=item.x&&x<=(item.x+80)&&y>=item.y&&y<=(item.y+80)){
+                                    targetNodeCur= item.idx;
+                                    break;
+                                }
+                            }
+
+                            if(targetNodeCur==-1){
+                                self.listWrapper.appendChild(targetNode);
+                            }else{
+                                var targetNodeCur=self.listWrapper.querySelectorAll("li")[targetNodeCur];
+                                self.listWrapper.insertBefore(targetNode,targetNodeCur)
+                            }
+                    }, false);
+            });
+        };
+        return Photo;
+    })();
+    var photo=new Photo({selector:".item"})
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.box {
+    width: 40%;
+    height: 50px;
+    display: flex;
+}
+
+.item{
+    width: 100px;
+    margin: 5px;
+    border: 1px solid #000000;
+}

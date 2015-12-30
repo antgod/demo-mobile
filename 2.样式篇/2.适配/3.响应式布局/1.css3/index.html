@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
+<title>无标题文档</title>
+<style>
+.box{ margin:0 auto;}
+@media all and (min-width: 400px)
+{
+    .box
+    {
+        width:400px;height:400px;background:red;
+    }
+}
+@media all and (max-width: 399px)
+{
+    .box
+    {
+        width:200px;height:200px;background:blue;
+    }
+}
+/*
+	all 媒体类型
+	
+	and 关键字 
+	
+	(min-width: 400px) 媒体特性
+*/
+</style>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

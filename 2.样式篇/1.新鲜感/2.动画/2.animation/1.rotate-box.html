@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../prefixfree.min.js"></script>
+    <style>
+
+        .wrap {
+            width: 500px;
+            height: 600px;
+            background: #efefef;
+            perspective: 1000px;
+            perspective-origin: top left;
+            padding-top: 1px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 250px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: center center -50px;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+            }
+            to {
+                transform: rotateY(360deg)
+            }
+        }
+
+        .box > div {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 24px;
+            opacity: 0.5;
+        }
+
+        .top {
+            left: 0px;
+            top: -100px;
+            background: greenyellow;
+            transform: rotateX(90deg);
+            transform-origin: bottom;
+        }
+
+        .bottom {
+            left: 0px;
+            top: 100px;
+            background: antiquewhite;
+            transform: rotateX(-90deg);
+            transform-origin: top;
+        }
+
+        .left {
+            left: -100px;
+            top: 0;
+            background: blueviolet;
+            transform: rotateY(-90deg);
+            transform-origin: right;
+        }
+
+        .right {
+            left: 100px;
+            top: 0px;
+            background: coral;
+            transform: rotateY(90deg);
+            transform-origin: left;
+        }
+
+        .front {
+            left: 0;
+            top: 0;
+            background: darkkhaki;
+        }
+
+        .back {
+            left: 0;
+            top: 0;
+            background: darkorange;
+            transform: translateZ(-100px);
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="box">
+        <div class="top">1</div>
+        <div class="bottom">2</div>
+        <div class="left">3</div>
+        <div class="right">4</div>
+        <div class="front">5</div>
+        <div class="back">6</div>
+    </div>
+</div>
+</body>
+</html>
+
+

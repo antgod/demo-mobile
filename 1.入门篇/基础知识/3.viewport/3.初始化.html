@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>viewport</title>
+<!-- 如果不设置，会按照980宽度显示（iphone5下查看） -->
+<meta name="viewport" 
+content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,target-densitydpi=200" />
+<style>
+body{margin:0;}
+
+.box {
+	width: 320px;
+	height: 300px;
+	background: Red;
+}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		alert(document.documentElement.clientWidth);
+	</script>
+</body>
+</html>

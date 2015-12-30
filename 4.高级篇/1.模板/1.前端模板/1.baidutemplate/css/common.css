@@ -1,0 +1,16 @@
+@charset "utf-8";
+html,body{-webkit-text-size-adjust: none;-ms-text-size-adjust: none;overflow-x:hidden;}
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select { margin:0; padding:0;font-size: 12px; /* font-family:XX; */ }
+em { font-style:normal; }
+li { list-style:none; }
+a { text-decoration:none; }
+img { border:none; vertical-align:top; }
+table { border-collapse:collapse; }
+input,textarea { outline:none; }
+textarea { resize:none; overflow:auto; }
+body { font-family:"微软雅黑"; }
+ol,ul {list-style: none;}
+a{text-decoration: none;color: #000;}
+.clear{zoom:1}
+.clear:after{display: block;clear: both;content: ""}
+

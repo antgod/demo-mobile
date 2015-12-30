@@ -1,0 +1,32 @@
+1.media-type
+常用：
+	all，所有输出设备；
+	handheld，用于手持设备，如个人数码助理或可上网的手机；
+	screen (缺省值)，用于文档在屏幕媒体的呈现，如电脑显示器，所有 web 浏览器都运行于这样的系统屏幕媒体用户代理；
+	tv，应用于电视类型的设备（低分辨率，彩色，屏幕滚动能力有限，有声音）；
+	
+不常用：
+	print，应用于不透明的页面材料，以及文档在打印预览的状态。；
+	projection，应用于投影演示，例如投影仪或打印到透明胶片；
+	speech，应用于屏幕阅读器等发声设备；
+	braille，应用于盲文触摸式反馈设备；
+	embossed，用于打印的盲人印刷设备；
+	tty，应用于使用固定字符宽栅格的媒介，如电传，终端，或显示能力有限的手提设备；
+
+2.关键字
+
+	and:@media all and (orientation:landscape):连接
+	only:@media only tv：只有
+	not:@media not tv：排除
+
+3.特征
+	orientation:landscape:横屏 
+	orientation:portrait:竖屏
+	min-width:1200px 分辨率 最小在1200 之上包括1200
+	max-width:1024px 分辨率在1024以下 包括1024
+	-webkit-min-device-pixel-ratio:像素比
+	
+	常用媒体查询特征应该分段，两端数值不重合：
+	
+	@media all and (min-width:1200px)
+	@media all and (min-width:1024px) and (max-width:1199px)

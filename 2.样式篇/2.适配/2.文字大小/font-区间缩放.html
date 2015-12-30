@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,target-densitydpi=medium-dpi"/>
+    <title></title>
+    <style>
+        body {
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            alert(screen.width);
+            alert(document.querySelector("span").offsetWidth);
+        }
+    </script>
+</head>
+
+<!--1080-->
+<body>
+<span>测试文字测测试文字测测试文测试文字测测试文字测测试文</span>
+<!--14*3*26=1092-(26-1) note3的像素1080，所以占一屏-->
+<!--14*2*26=728 iphone6的像素750，所以占一屏-->
+</body>
+</html>

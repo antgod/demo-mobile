@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=320,user-scalable=no,target-densitydpi=medium-dpi" />
+<title>无标题文档</title>
+<script>
+document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
+</script>
+<style>
+body{margin:0;}
+.PicBox{width:1rem;height:1rem;-webkit-perspective:800px;-moz-perspective:800px;perspective:800px; position:absolute;}
+.PicBox div{width:0.1rem;height:1rem; position:absolute;left:0.1rem;top:0; background:url(demo/video/1.jpg) no-repeat;background-size:cover; -webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;transform-style:preserve-3d; -webkit-transform-origin:left 0.8rem;-moz-transform-origin:left 0.8rem;transform-origin:left 0.8rem;}
+.PicBox>div{left:0;}
+.PicBox div.show{ -webkit-transform:rotateY(-60deg) rotateX(5deg);}
+.PicBox>div.show{-webkit-transform:rotateY(-60deg) rotateX(5deg) translateX(0.6rem);}
+</style>
+<script>
+function open3D(obj)
+{
+	var aDiv=obj.getElementsByTagName("div");
+	for(var i=0;i<aDiv.length;i++)
+	{
+		aDiv[i].style.transition="0.5s";
+		aDiv[i].className="show";
+	}
+}
+function clos3D(obj)
+{
+	var aDiv=obj.getElementsByTagName("div");
+	for(var i=0;i<aDiv.length;i++)
+	{
+		aDiv[i].style.transition="0.5s";
+		aDiv[i].className="";
+	}
+}
+
+window.onload=function()
+{
+	var oPicBox=document.getElementsByClassName("PicBox")[0];
+	setTimeout(function(){
+		open3D(oPicBox);	
+	},2000);
+	setTimeout(function(){
+		clos3D(oPicBox);	
+	},4000);
+};
+</script>
+</head>
+<body>
+<div class="PicBox">
+	<div>
+    	<div style="background-position:-0.1rem 0;">
+        	<div style="background-position:-0.2rem 0;">
+            	<div style="background-position:-0.3rem 0;">
+                	<div style="background-position:-0.4rem 0;">
+                    	<div style="background-position:-0.5rem 0;">
+                        	<div style="background-position:-0.6rem 0;">
+                            	<div style="background-position:-0.7rem 0;">
+                                	<div style="background-position:-0.8rem 0;">
+                                    	<div style="background-position:-0.9rem 0;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

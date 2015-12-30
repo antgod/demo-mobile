@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .left,.middle,.right,.left1,.middle1,.right1{ width: 200px;float: left;}
+        .side-five {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid red;
+            position: relative;
+        }
+
+        .side-five:after{
+            position: absolute;
+            top:70px;
+            left: -100px;
+            content: "";
+
+
+            width:100px;
+
+            border-top: 100px solid red;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+
+        #hexagon {
+            width: 100px;
+            height: 55px;
+            background: red;
+            position: relative;
+            margin-top: 50px;
+        }
+        #hexagon:before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 25px solid red;
+        }
+        #hexagon:after {
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 25px solid red;
+        }
+
+        #octagon {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+        }
+
+        #octagon:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom: 29px solid red;
+            border-left: 29px solid #eee;
+            border-right: 29px solid #eee;
+            width: 42px;
+            height: 0;
+        }
+
+        #octagon:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-top: 29px solid red;
+            border-left: 29px solid #eee;
+            border-right: 29px solid #eee;
+            width: 42px;
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="left">
+    五边形
+    <div class="side-five div"></div>
+</div>
+<div class="middle">
+    六边形
+    <div id="hexagon"></div>
+</div>
+<div class="right">
+    八边形
+    <div id="octagon"></div>
+</div>
+</body>
+</html>

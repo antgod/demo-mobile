@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>transtion-end-repeat</title>
+		<style>
+			.box{width:100px;height:100px;background:red; transition:1s width;}
+		</style>
+		</head>
+	<body>
+		<div class="box" id="box"></div>
+		<script>
+			var oBox=document.getElementById("box");
+			oBox.onclick=function(){
+				this.style.width=this.offsetWidth+100+"px";
+				addEnd(oBox,end);
+			};
+			function end(){
+				this.style.width=this.offsetWidth+100+"px";
+				removeEnd(this,end);
+			}
+			function addEnd(obj,fn){
+				obj.addEventListener('WebkitTransitionEnd',fn,false);
+				obj.addEventListener('transitionend',fn,false);
+			}
+			function removeEnd(obj,fn){
+				obj.removeEventListener('WebkitTransitionEnd',fn,false);
+				obj.removeEventListener('transitionend',fn,false);
+			}
+		</script>
+	</body>
+</html>

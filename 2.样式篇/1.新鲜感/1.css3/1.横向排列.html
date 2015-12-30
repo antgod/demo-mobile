@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*自动生成flexbox的工具:http://the-echoplex.net/flexyboxes/*/
+        .div{width: 200px;height: 30px;background: red;}
+        .float,.inline-block,.flex,.table-cell{overflow: hidden;width: 500px;margin-top: 10px;}
+
+        .float .hor{float:left;}
+        .inline-block{font-size: 0;}
+        .inline-block .hor{display:inline-block;font-size:16px; }
+
+        .flex{
+            width:820px;
+            /*旧版语法*/
+            /*display: -webkit-box;*/
+            /*display: -ms-flexbox; */
+            /*display: -moz-box;*/
+
+            /*新版语法*/
+            /*display: -webkit-flex;*/
+            /*display: flex;*/
+
+            /*PC端*/
+            display: -moz-box;          /*Firefox19-*/
+            display: -ms-flexbox;       /*IE10 */
+
+            /*移动端+PC端*/
+            display: -webkit-box;       /*-IOS6以及以前：Safari3.1~6 */
+            display: -webkit-flex;      /* Chrome, WebKit  */
+            display: flex;              /* Firefox20+,Chrome40+, */
+        }
+        .flex .hor{
+            /*PC端*/
+            /*-webkit-box-flex: 1;*/
+            /*-moz-box-flex: 1;*/
+            /*-webkit-flex: 1;*/
+            /*-ms-flex: 1;*/
+            /*flex: 1;*/
+            /*移动端*/
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+
+        .table-cell .hor{
+            display:table-cell;
+        }
+    </style>
+</head>
+<body>
+<!-- 脱离文档流，无法自适应（必须有一个元素为静态定位元素才能自适应），换行显示-->
+<div class="section float">
+    <div class="hor div">1</div>
+    <div class="hor div">2</div>
+    <div class="hor div">3</div>
+</div>
+<!-- 需要清除间隙，无法自适应，换行展示 -->
+<div class="section inline-block">
+    <div class="hor div">1</div>
+    <div class="hor div">2</div>
+    <div class="hor div">3</div>
+</div>
+<!-- 需要清除间隙，无法自适应，换行展示 -->
+<div class="section flex">
+    <div class="hor div">1</div>
+    <div class="hor div">2</div>
+    <div class="hor div">3</div>
+</div>
+<div class="section table-cell">
+    <div class="hor div">1</div>
+    <div class="hor div">2</div>
+    <div class="hor div">3</div>
+</div>
+</body>
+</html>

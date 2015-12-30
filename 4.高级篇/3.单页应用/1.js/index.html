@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script >
+    var template=(function(){
+
+        var cache={};
+
+        return function(){
+            var url=[].shift.call(arguments);
+
+            if(cache[url]){
+                return cache[url];
+            }else{
+                var script=document.createElement("script");
+                script.type="text/html";
+                script.src=url;
+                cache[url]=url;
+                document.head.appendChild(script);
+                return script;
+            }
+        }
+    })();
+
+    var head=template("header.html");
+
+    alert(head.innerHTML)
+
+
+
+
+
+
+</script>
+</html>

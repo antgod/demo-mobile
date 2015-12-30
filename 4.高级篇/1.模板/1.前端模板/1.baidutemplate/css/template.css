@@ -1,0 +1,18 @@
+.head{background: #ccc;position: fixed;top:0;height: 3rem;width: 100%;text-align: center;}
+.head .tabs{display: inline-block;width: 100%;height: 30px;}
+.head .tab{float: left;width:33%;line-height: 30px;}
+.content{background: #e8e8e8;margin:3rem auto;height: 300px; }
+.foot{background: #ccc;position: fixed;bottom:0;height: 3rem;width: 100%;text-align: center;line-height: 3rem;}
+.foot .link{margin:0 10px;}
+
+.tab-bodys .loading span {display: inline-block; width: 100%;}
+.tab-bodys .loading {text-align: center;width: 100%;margin: 0.01rem auto;}
+.tab-bodys .init span {display: inline-block; width: 100%;} 
+.tab-bodys .init {text-align: center;width: 100%;margin: 0.01rem auto;height:100%;padding-top:0.5rem;}
+.tab-bodys .initerror span {display: inline-block; width: 100%;} 
+.tab-bodys .initerror {text-align: center;width: 100%;margin: 0.01rem auto;height:100%;padding-top:0.5rem;}
+.tab-bodys .error span {display: inline-block; width: 100%;}
+.tab-bodys .error {text-align: center;width: 100%;margin: 0.01rem auto;}
+.tab-bodys .none{text-align: center;width: 100%;margin: 0 auto;border-top:1px solid #ddd;}
+.tab-bodys .none span {display: inline-block; width: 100%;height:0.1rem;line-height:0.1rem;}
+
