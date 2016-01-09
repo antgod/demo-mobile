@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+    <title>message demo</title>
+    <style>
+    *{margin:0; padding:0;}
+    a{text-decoration: none;}
+    body{background: #fff; font:normal normal 16px/2 '微软雅黑', '黑体', Arial; padding:10px;}
+    .container{overflow: hidden; text-align: center;}
+    .tit{
+        position: relative;
+        text-align: left;
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .tit:after{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 1px;
+        border-bottom: 1px solid #ff4683;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+
+    .btn{
+        display: inline-block;
+        color: #ff4683;
+        background-color: #fff;
+        padding: 4px 120px;
+        position: relative;
+    }
+	
+    .btn:before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: 0;
+        left: 0;
+        border: 1px solid #ff4683;
+        border-radius: 3px;
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(0.5, 0.5);
+        -ms-transform: scale(0.5, 0.5);
+        -o-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+	
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h5 class="tit">标题</h5><br/><br/>
+
+        <a class="btn" href="javascript:;">立即预约</a>
+    </section>
+</body>
+</html>

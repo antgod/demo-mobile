@@ -1,0 +1,70 @@
+1、IOS上长按链接或者图片会默认弹出系统菜单，-webkit-touch-callout 可以禁止这个菜单的弹出（菜单默认是开启的），安卓不起作用
+a,img {
+    -webkit-touch-callout: none;
+}
+
+2、禁止选择文本（如果没有选择文本需要，建议最好加上）
+html,
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+3、避免屏幕旋转导致字体大小缩放
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
+4、透明度设置为0，去掉点击链接和文本框对象时默认的灰色半透明覆盖层(iOS)或者虚框(Android)
+body {
+    -webkit-tap-highlight-color: rba(255, 255, 255, 0);
+}
+利用此属性，设置touch时链接区域高亮为50%的透明红，只在ios上起作用。android上只要使用了此属性就表现为边框。在body上加此属性，这样就保证body的点击区域效果一致了
+body {
+    -webkit-tap-highlight-color: rba(255, 255, 255, 0);
+}
+
+5、隐藏地址栏
+settTimeout(function (){
+    window.scrollTo(0, 1);
+}, 0);
+
+6、开启电话、短信功能
+// 电话
+<a href="tel:10086">10086</a>
+
+// 短信
+<a href="sms:10086">10086</a>
+
+// 邮箱
+<a href="mailto:example@gmai.com">example@gmail.com</a>
+
+7、判断屏幕方向
+switch (window.orientation){
+    case -90:
+    case 90:
+        alert("横屏:" + window.orientation);
+        break;
+    case 0:
+    case 180:
+        alert("竖屏:" + window.orientation);
+        break;
+}
+
+8、关闭 IOS 输入框首字母大写
+<input type="text" autocapitalize="off" />
+
+9、关闭 IOS 输入自动修正
+<input type="text" autocorrect="off" />
+
+10.关闭 IOS 自动电话识别
+<meta name="format-detection" content="telephone=no" />
+
+11.想要去除文本框的默认样式可以使用-webkit-appearance，
+-webkit-appearance: none;//消除输入框和按钮的原生外观，在iOS上加上这个属性才能给按钮和输入框自定义样式
+聚焦时候默认样式的取消是-webkit-tap-highlight-color。
+
+12-webkit-overflow-scrolling
+-webkit-overflow-scrolling:touch;// 局部滚动(仅iOS 5以上支持)
