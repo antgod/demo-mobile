@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试分享页面</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        header{text-align: center;}
+        li{
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+    <script>
+        $.ajax({
+            url:"access.php",
+            async:false,
+            success:function(responseData){
+                window.data=responseData;
+            }
+        });
+
+        wx.config({
+            debug: true,
+            appId: data.appId,
+            timestamp: data.timestamp,
+            nonceStr: data.nonceStr,
+            signature: data.signature,
+            jsApiList: [
+                'onMenuShareTimeline'
+            ]
+        });
+
+        wx.error(function (res) {
+            alert(res.errMsg);
+        });
+        wx.ready(function(){
+            var shareData = {
+                title: '标题',
+                desc: '描述',
+                link: 'http://www.lanrenmb.com',
+                imgUrl: 'http://www.lanrenmb.com/templets/lanrenmb/img/logo.png'
+            };
+            wx.onMenuShareAppMessage(shareData);
+            wx.onMenuShareTimeline(shareData);
+            wx.onMenuShareQQ(shareData);
+            wx.onMenuShareWeibo(shareData);
+        });
+
+    </script>
+</head>
+<body>
+    <header>
+    <h4>第一个微信页面开发完22成</h4>
+    </header>
+    <ul>
+        <li>
+        1.登录微信公众平台：http://mp.weixin.qq.com/ <br/>
+            获取appId,填写手机号校验通过，获取appsecret  <br/>
+        </li>
+        <li>
+        2.通过appId,appsecret获取access_token:<br/>
+            接口：https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET<br/>
+            接口文档：http://mp.weixin.qq.com/wiki/11/0e4b294685f817b95cbed85ba5e82b8f.html<br/>
+        </li>
+        <li>
+        3.通过access_token获取jsapi_ticket：<br/>
+            https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=".$access_token."&type=jsapi <br/>
+            接口文档：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html<br/>
+        </li>
+        <li>
+        4.根据生成一个16位随机字符串：noncestr，获取当前系统时间：timestamp，获取当前URL，与jsapi_ticket，进行一下三部操作，生成signature<br/>
+            对4个参数进行url拼接参数 <br/>
+            对参数decode     <br/>
+            对decode的结果进行sha1算法  <br/>
+        </li>
+        <li>
+        5.通过noncestr，timestamp，appId与 signature ，进行验证：<br/>
+            调用函数：wx.config  <br/>
+            验证通过：wx.ready  <br/>
+        </li>
+        <li>
+        6.分享朋友圈：<br/>
+            api文档：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html   <br/>
+            见本页js代码。 <br/>
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+1.分享给好友，分享到朋友圈
+
+2.官网：
+
+    开放平台：http://open.weixin.qq.com/
+
+    公众平台：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+
+        AppID应用Id：wxb3402ccd82ee91d7
+
+        AppSecret应用密匙：wxb3402ccd82ee91d7
+
+3.获取access-token:
+    http://mp.weixin.qq.com/wiki/11/0e4b294685f817b95cbed85ba5e82b8f.html
