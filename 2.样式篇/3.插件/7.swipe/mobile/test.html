@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="swipe.js"></script>
+    <script src="zepto.js"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        body,ul{margin: 0;padding: 0;}
+        .w-home-round {
+            background: #ccc;
+            width: 100%;
+            height: 136px;
+            position: relative;
+            overflow: hidden;
+        }
+        .w-home-round .w-home-round-image-list {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .w-home-round .w-home-round-image-list li{
+            list-style: none;
+            float:left;
+            width:100%;
+            position: relative;
+        }
+
+        .w-home-round .w-home-round-nav-list {
+            overflow: hidden;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            font-size: 0;
+        }
+        .w-home-round .w-home-round-nav-list li {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+        }
+
+        .w-home-round .w-home-round-nav-list li i{
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 4px;
+            margin: 2px 0 0 2px;
+            border: 1px solid #fff;
+        }
+        .active i{
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<div class="w-home-round">
+    <ul class="w-home-round-image-list list">
+        <li><a href='#'>1</a></li>
+        <li><a href='#'>2</a></li>
+        <li><a href='#'>3</a></li>
+    </ul>
+    <ul class="w-home-round-nav-list nav" style="margin-left:-21px;">
+        <li class="active"><i></i></li>
+        <li><i></i></li>
+        <li><i></i></li>
+    </ul>
+</div>
+</body>
+<script>
+    var swipe = Swipe(document.querySelector(".w-home-round"), {
+        auto: 5000,
+        transitionEnd: function(index, element) {}
+    });
+
+    $(".w-home-round").on('tap', ' li', function (e) {
+        var $li = $(this);
+        $(".nav li").removeClass("active");
+        $li.addClass("active");
+        var index = $li.index();
+        swipe.slide(index);
+    });
+</script>
+</html>
